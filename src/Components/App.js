@@ -6,6 +6,7 @@ import { Title } from "./Container/Container.styled.jsx";
 import { ContactList } from "./ContactList/ContactList.jsx";
 import { Filter } from "./Filter/Filter.jsx";
 import { v4 as uuidv4 } from "uuid";
+import Counter from './Counter/Counter.jsx';
 
 function App () {
  
@@ -76,6 +77,7 @@ window.localStorage.setItem('contact', JSON.stringify(contacts));
           contacts={getFilteredContacts()}
           onDeleteContact={delContact}
         />
+        <Counter/>
       </ContainerApp>
     );
   
