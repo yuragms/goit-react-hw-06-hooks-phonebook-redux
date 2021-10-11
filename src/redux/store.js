@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 
 const initialState = {
-    counterValue: 0,
+    counterValue: 10,
 };
 
 const reducer = (state = initialState, {type, payload}) => {

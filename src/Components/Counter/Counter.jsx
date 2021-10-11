@@ -1,8 +1,9 @@
 
 import { connect } from 'react-redux';
 import styles from './Counter.module.css';
+import * as actions from '../../redux/actions';
 
- function Counter() {
+ function Counter({value, onIncrement, onDecrement}) {
   
   
 
@@ -11,13 +12,13 @@ import styles from './Counter.module.css';
       <button
         className={styles.btn}
         type="button"
-        onClick={handleCounterAIncrement}
+        onClick={onIncrement}
       >increment</button>
 <div>{value}</div>
       <button
         className={styles.btn}
         type="button"
-        onClick={handleCounterBIncrement}
+        onClick={onDecrement}
       >
         decrement
       </button>
@@ -25,4 +26,17 @@ import styles from './Counter.module.css';
   );
 }
 
-export default connect()(Counter)
+const mapStateToProps = state => {
+  return {
+    value: state.counterValue,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onIncrement: ()=> dispatch(actions.increment(10)),
+    onDecrement: ()=> dispatch(actions.decrement(10)),
+};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
