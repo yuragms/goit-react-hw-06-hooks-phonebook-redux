@@ -7,12 +7,12 @@ const addContacts =(name, number) => ({
     id: uuidv4(),
     name,
     number,
-    }
-})
+    },
+});
 
 сonst delContact = contactId => ({
     type: DELETE,
-    payload: contactId
-})
+    payload: contactId,
+});
 
 export  { addContacts, delContact};
