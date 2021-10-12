@@ -73,10 +73,10 @@ function App () {
         <Form />
         {/* <Title>Contacts</Title>
         <Filter value={filter} onChange={onChangeFilter} /> */}
-        {/* <ContactList
-          contacts={getFilteredContacts()}
-          onDeleteContact={delContact}
-        /> */}
+        <ContactList
+          // contacts={getFilteredContacts()}
+          // onDeleteContact={delContact}
+        />
         <Counter/>
       </ContainerApp>
     );

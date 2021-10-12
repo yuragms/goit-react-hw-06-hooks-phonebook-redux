@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
-
 import { List, Item, Button } from "./Contactlist.styled.jsx";
 
 export const ContactList = ({ contacts, onDeleteContact }) => (

@@ -10,7 +10,7 @@ const addContacts =(name, number) => ({
     },
 });
 
-сonst delContact = contactId => ({
+const delContact = (contactId) => ({
     type: DELETE,
     payload: contactId,
 });
