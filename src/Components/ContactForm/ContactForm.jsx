@@ -1,14 +1,13 @@
-// import React, { Component } from "react";
+
 import { useState } from 'react';
+import {connect } from 'react-redux';
 import { v4 as uuidv4 } from "uuid";
+import * as phonebookActions  from '../../redux/phonebook/phonebook-actions';
 
 import { ContactForm, Label, Input, Button } from "./ContactForm.styled";
 
 function Form ({onSubmit}) {
-  // state = {
-  //   name: "",
-  //   number: "",
-  // };
+  
   const [name, setName] = useState('');
   const [number, setNumber] =  useState('');
 
@@ -16,7 +15,6 @@ function Form ({onSubmit}) {
  const numberInputId = uuidv4();
 
   const handleChange = (e) => {
-    // this.setState({ [e.currentTarget.name]: e.currentTarget.value });
     const {name, value} = e.currentTarget;
     switch (name) {
       case 'name':
@@ -32,15 +30,13 @@ function Form ({onSubmit}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const { name, number } = this.state;
     onSubmit(name, number);
     console.log(name, number);
     reset();
   };
 
   const reset = () => {
-    // this.setState({ name: "" });
-    // this.setState({ number: "" });
+   
     setName('');
     setNumber('');
 
@@ -80,4 +76,8 @@ function Form ({onSubmit}) {
   
 }
 
-export default Form;
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (name, number) => dispatch(phonebookActions.addContacts(name, number)),
+});
+
+export default connect(null, mapDispatchToProps)(Form);

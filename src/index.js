@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./Components/App";
 import store from './redux/store';
-import { myAction, myAction2 } from "./redux/actions";
+// import { myAction, myAction2 } from "./redux/actions";
 import { Provider } from "react-redux";
 
 console.log(store);

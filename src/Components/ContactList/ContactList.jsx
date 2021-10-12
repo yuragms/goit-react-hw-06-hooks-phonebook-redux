@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 
 import { List, Item, Button } from "./Contactlist.styled.jsx";
 
@@ -14,3 +16,13 @@ export const ContactList = ({ contacts, onDeleteContact }) => (
     ))}
   </List>
 );
+
+const mapStateToProps = (state) => ({
+  contacts: state.contacts.items
+});
+
+const mapDispatchToProps = dispatch => ({
+  onDeleteContact: () => null,
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(ContactList);

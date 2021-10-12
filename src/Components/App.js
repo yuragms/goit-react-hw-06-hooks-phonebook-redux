@@ -10,73 +10,73 @@ import Counter from './Counter/Counter.jsx';
 
 function App () {
  
-  const initialContacts = [
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ];
+  // const initialContacts = [
+  //   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+  //   { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+  //   { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+  //   { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+  // ];
 
-  const[contacts, setContacts] = useState(()=> {
-     return JSON.parse(window.localStorage.getItem('contact')) ?? initialContacts; 
-    });
-    const[filter, setFilter] = useState('');
+  // const[contacts, setContacts] = useState(()=> {
+  //    return JSON.parse(window.localStorage.getItem('contact')) ?? initialContacts; 
+  //   });
+  //   const[filter, setFilter] = useState('');
 
-  const addContactApp = (name, number) => {
-    const AddedContact = {
-      id: uuidv4(),
-      name,
-      number,
-    };
+  // const addContactApp = (name, number) => {
+  //   const AddedContact = {
+  //     id: uuidv4(),
+  //     name,
+  //     number,
+  //   };
 
-    const isRepeatableContact = contacts.find(
-      (contact) => contact.name.toLowerCase() === name.toLowerCase()
-    );
-    if (isRepeatableContact) {
-      alert(`${name} is alredy in contacts`);
-    } else {
-      setContacts(prevState => (
-         [AddedContact, ...prevState]
-      ));
-    }
-  };
+  //   const isRepeatableContact = contacts.find(
+  //     (contact) => contact.name.toLowerCase() === name.toLowerCase()
+  //   );
+  //   if (isRepeatableContact) {
+  //     alert(`${name} is alredy in contacts`);
+  //   } else {
+  //     setContacts(prevState => (
+  //        [AddedContact, ...prevState]
+  //     ));
+  //   }
+  // };
 
-  const delContact = (contactId) => {
-    setContacts(prevContacts => 
-      prevContacts.filter(
-        (contact) => contact.id !== contactId)
-    );
-  };
+  // const delContact = (contactId) => {
+  //   setContacts(prevContacts => 
+  //     prevContacts.filter(
+  //       (contact) => contact.id !== contactId)
+  //   );
+  // };
 
-  const onChangeFilter = (e) => {
-    setFilter(e.currentTarget.value );
-  };
+  // const onChangeFilter = (e) => {
+  //   setFilter(e.currentTarget.value );
+  // };
 
-  const getFilteredContacts = () => {
+  // const getFilteredContacts = () => {
    
 
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
 
-useEffect(()=> {
-  console.log('App componentDidUpdate');
-window.localStorage.setItem('contact', JSON.stringify(contacts));
-},[contacts]);
+// useEffect(()=> {
+//   console.log('App componentDidUpdate');
+// window.localStorage.setItem('contact', JSON.stringify(contacts));
+// },[contacts]);
 
  
 
     return (
       <ContainerApp>
         <Title>Phonebook</Title>
-        <Form onSubmit={addContactApp} />
-        <Title>Contacts</Title>
-        <Filter value={filter} onChange={onChangeFilter} />
-        <ContactList
+        <Form />
+        {/* <Title>Contacts</Title>
+        <Filter value={filter} onChange={onChangeFilter} /> */}
+        {/* <ContactList
           contacts={getFilteredContacts()}
           onDeleteContact={delContact}
-        />
+        /> */}
         <Counter/>
       </ContainerApp>
     );

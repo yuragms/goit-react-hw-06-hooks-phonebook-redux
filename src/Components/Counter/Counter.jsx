@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 import styles from './Counter.module.css';
-import * as actions from '../../redux/actions';
+import * as actions from '../../redux/counter/counter-actions';
 
  function Counter({value, step, onIncrement, onDecrement}) {
   
@@ -18,7 +18,7 @@ import * as actions from '../../redux/actions';
       <button
         className={styles.btn}
         type="button"
-        onClick={()=>onIncrement(step)}
+        onClick={()=>onDecrement(step)}
       >
         decrement{step}
       </button>
