@@ -6,7 +6,7 @@ import * as phonebookActions  from '../../redux/phonebook/phonebook-actions';
 
 import { ContactForm, Label, Input, Button } from "./ContactForm.styled";
 
-function Form ({onSubmit}) {
+function Form ({items, onSubmit}) {
   
   const [name, setName] = useState('');
   const [number, setNumber] =  useState('');
@@ -30,16 +30,27 @@ function Form ({onSubmit}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(name, number);
+    
+
+    
+    const isRepeatableContact = items.find(
+      (contact) => contact.name.toLowerCase() === name.toLowerCase()
+    );
+    if (isRepeatableContact) {
+      alert(`${name} is alredy in contacts`);
+    } else {
+      onSubmit(name, number);
     console.log(name, number);
     reset();
+    }
+
+
+   
   };
 
   const reset = () => {
-   
     setName('');
     setNumber('');
-
   };
 
   
@@ -76,8 +87,15 @@ function Form ({onSubmit}) {
   
 }
 
+const mapStateToProps = state => {
+  const items = state.contacts;
+  console.log(items);
+ return items;
+
+};
+
 const mapDispatchToProps = dispatch => ({
   onSubmit: (name, number) => dispatch(phonebookActions.addContacts(name, number)),
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
