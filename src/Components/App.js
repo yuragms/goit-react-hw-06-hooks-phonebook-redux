@@ -3,8 +3,8 @@ import {useState, useEffect} from 'react';
 import ContainerApp from "./Container/Container.jsx";
 import Form from "./ContactForm/ContactForm.jsx";
 import { Title } from "./Container/Container.styled.jsx";
-import { ContactList } from "./ContactList/ContactList.jsx";
-import { Filter } from "./Filter/Filter.jsx";
+import ContactList  from "./ContactList/ContactList.jsx";
+import Filter  from "./Filter/Filter.jsx";
 import { v4 as uuidv4 } from "uuid";
 import Counter from './Counter/Counter.jsx';
 
@@ -71,12 +71,15 @@ function App () {
       <ContainerApp>
         <Title>Phonebook</Title>
         <Form />
-        {/* <Title>Contacts</Title>
-        <Filter value={filter} onChange={onChangeFilter} /> */}
+        <Title>Contacts</Title>
+        <Filter
+        //  value={filter}
+        //   onChange={onChangeFilter}
+           />
         <ContactList
-          // contacts={getFilteredContacts()}
+                 // contacts={getFilteredContacts()}
           // onDeleteContact={delContact}
-        />
+         />
         <Counter/>
       </ContainerApp>
     );
@@ -85,6 +88,7 @@ function App () {
 
 export default App;
 
+ 
 
 
 

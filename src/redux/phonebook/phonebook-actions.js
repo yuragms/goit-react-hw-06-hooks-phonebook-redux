@@ -1,4 +1,4 @@
-import {ADD, DELETE, TOGGLE_COMPLETED, CHANGE_FILTER} from './phonebook-types';
+import {ADD, DELETE, CHANGE_FILTER} from './phonebook-types';
 import { v4 as uuidv4 } from "uuid";
 
 const addContacts =(name, number) => ({
@@ -15,4 +15,9 @@ const delContact = (contactId) => ({
     payload: contactId,
 });
 
-export  { addContacts, delContact};
+const changeFilter = (value) => ({
+    type: CHANGE_FILTER,
+    payload: value,
+});
+
+export  { addContacts, delContact, changeFilter};
